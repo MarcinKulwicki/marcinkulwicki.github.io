@@ -24,6 +24,41 @@
 
 <!-- rawgithack development URL -->
 <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+<script>
+  AFRAME.registerComponent('change-color-on-click', {
+  // Could use a schem to preserve the color! then simply change it on update
+  // if clicked?
+    init: function () {
+      var COLORS = [
+        'pink',
+        //'blue',
+        'yellow',
+        'red',
+        'peachpuff',
+        '#2EAFAC',
+        '#BAE'
+      ];
+
+      this.el.addEventListener('click', function (evt) {
+        var randomIndex = Math.floor(Math.random() * COLORS.length);
+        var newColor = COLORS[randomIndex];
+        this.setAttribute('material', 'color', newColor);
+        console.log('I was clicked at: ', evt.detail.intersection.point, "and my new color is: ", newColor);
+      });
+    }
+  });
+</script>
+<script>
+  AFRAME.registerComponent('open-url-on-click', {
+  // Could use a schem to preserve the color! then simply change it on update
+  // if clicked?
+    init: function () {
+      this.el.addEventListener('click', function (evt) {
+        window.open("https://n.novol.com/karty/tech/NO-21-22%20Dart%20Clear%208500.pdf");
+      });
+    }
+  });
+</script>
 
 <body style='margin : 0px; overflow: hidden;'>
    <!-- minimal loader shown until image descriptors are loaded -->
@@ -53,9 +88,13 @@
             ></a-entity>
             <a-image src="aplikowanie.jpg" width="8" height="3"
                 scale="50 50 50"
-				        position="100 500 0"
+                position="100 500 0"
+                open-url-on-click=""
             ></a-image>
+            <!-- <a-box position="100 200 0" scale="50 50 50" color="green" change-color-on-click=""></a-box> -->
         </a-nft>
-		<a-entity camera></a-entity>
+		<a-entity camera>
+      <a-cursor geometry="primitive: ring" material="color: #FFC0CB;    shader: flat"></a-cursor>
+    </a-entity>
     </a-scene>
 </body>
