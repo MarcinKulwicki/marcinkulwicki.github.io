@@ -35,25 +35,134 @@
         renderer="logarithmicDepthBuffer: true;"
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
-        <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
+        <a-assets>
+          <a-mixin id="board" geometry="depth: .05; height: 1.5; width: 6" material="shader: flat" pivot="0 0.5 0" position="0 -1 0"></a-mixin>
+          <a-mixin id="unhinge" animation="property: rotation; to: 0 0 0; dur: 1000"></a-mixin>
+          <img id="shadow" src="https://raw.githubusercontent.com/aframevr/aframe/master/examples/assets/img/radial-shadow-2.png">
+          
+          <!-- Novol 8500 -->
+          <img id="novol-11" src="images/unfold-lib/novol-11.jpg">
+          <img id="novol-12" src="images/unfold-lib/novol-12.jpg">
+          <img id="novol-13" src="images/unfold-lib/novol-13.jpg">
+          <img id="novol-14" src="images/unfold-lib/novol-14.jpg">
+          <img id="novol-15" src="images/unfold-lib/novol-15.jpg">
+
+          <!-- Novol Cobra -->
+          <img id="novol-cobra-11" src="images/unfold-lib/novol-cobra-11.jpg">
+          <img id="novol-cobra-12" src="images/unfold-lib/novol-cobra-12.jpg">
+          <img id="novol-cobra-13" src="images/unfold-lib/novol-cobra-13.jpg">
+          <img id="novol-cobra-14" src="images/unfold-lib/novol-cobra-14.jpg">
+          <img id="novol-cobra-15" src="images/unfold-lib/novol-cobra-15.jpg">
+
+          <!-- Novol Spectral -->
+          <img id="novol-spectral-11" src="images/unfold-lib/novol-spectral-11.jpg">
+          <img id="novol-spectral-12" src="images/unfold-lib/novol-spectral-12.jpg">
+          <img id="novol-spectral-13" src="images/unfold-lib/novol-spectral-13.jpg">
+          <img id="novol-spectral-14" src="images/unfold-lib/novol-spectral-14.jpg">
+          <img id="novol-spectral-15" src="images/unfold-lib/novol-spectral-15.jpg">
+
+          <!-- Novol Ultra -->
+          <img id="novol-ultra-11" src="images/unfold-lib/novol-ultra-11.jpg">
+          <img id="novol-ultra-12" src="images/unfold-lib/novol-ultra-12.jpg">
+          <img id="novol-ultra-13" src="images/unfold-lib/novol-ultra-13.jpg">
+          <img id="novol-ultra-14" src="images/unfold-lib/novol-ultra-14.jpg">
+          <img id="novol-ultra-15" src="images/unfold-lib/novol-ultra-15.jpg">
+        </a-assets>
+
+        <!-- Novol 8500 -->
         <a-nft
-            type='nft' url='novol-example/different-marks/novol-ultra-b/novol-ultra-b'
-            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+            type='nft' url='novol-example/different-marks/data-images/novol-b/novol-b'
+            smooth='true' smoothCount='23' smoothTolerance='.3' smoothThreshold='30'>
             
-            <a-box scale="100 100 100" position="400 800 0" color="green" depth="1" height="1" width="1"></a-box>
+            <a-entity position="400 1000 0" scale="50 50 50"
+                animation__position="attribute: position; to: 0 5 -8; dur: 2000"
+                animation__rotation="property: rotation; from: 0 0 0; to: 0 0 0; dur: 2500" novol-cursor-listener novol-click>
+
+              <a-box class="plane" mixin="board" src="#novol-11" rotation="-20 0 0" animation="delay: 1000">
+                <a-box class="plane" mixin="board" src="#novol-12" rotation="-175 0 0" animation="delay: 250">
+                  <a-box class="plane" mixin="board" src="#novol-13" rotation="-180 0 0" animation="delay: 500">
+                    <a-box class="plane" mixin="board" src="#novol-14" rotation="-180 0 0" animation="delay: 750">
+                      <a-box class="plane" mixin="board" src="#novol-15" rotation="-180 0 0" animation="delay: 1000">
+                      </a-box>
+                    </a-box>
+                  </a-box>
+                </a-box>
+              </a-box>
+            </a-entity>
         </a-nft>
+
+        <!-- Novol Cobra -->
         <a-nft
-            type='nft' url='novol-example/different-marks/novol-ultra-b2/novol-ultra-b2'
-            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+            type='nft' url='novol-example/different-marks/data-images/novol-cobra-b/novol-cobra-b'
+            smooth='true' smoothCount='23' smoothTolerance='.3' smoothThreshold='30'>
             
-            <a-box scale="100 100 100" position="500 800 0" color="red" depth="1" height="1" width="1"></a-box>
+            <a-entity position="400 1000 0" scale="50 50 50"
+                animation__position="attribute: position; to: 0 5 -8; dur: 2000"
+                animation__rotation="property: rotation; from: 0 0 0; to: 0 0 0; dur: 2500" cobra-cursor-listener novol-cobra-click>
+
+              <a-box class="plane-cobra" mixin="board" src="#novol-cobra-11" rotation="-20 0 0" animation="delay: 1000">
+                <a-box class="plane-cobra" mixin="board" src="#novol-cobra-12" rotation="-175 0 0" animation="delay: 250">
+                  <a-box class="plane-cobra" mixin="board" src="#novol-cobra-13" rotation="-180 0 0" animation="delay: 500">
+                    <a-box class="plane-cobra" mixin="board" src="#novol-cobra-14" rotation="-180 0 0" animation="delay: 750">
+                      <a-box class="plane-cobra" mixin="board" src="#novol-cobra-15" rotation="-180 0 0" animation="delay: 1000">
+                      </a-box>
+                    </a-box>
+                  </a-box>
+                </a-box>
+              </a-box>
+            </a-entity>
         </a-nft>
-        <!-- <a-nft
-            type='nft' url='novol-example/different-marks/novol-spectral/novol-spectral'
-            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+
+        <!-- Novol Spectral -->
+        <a-nft
+            type='nft' url='novol-example/different-marks/data-images/novol-spectral-b/novol-spectral-b'
+            smooth='true' smoothCount='23' smoothTolerance='.3' smoothThreshold='30'>
             
-            <a-box scale="100 100 100" position="450 400 0" color="yellow" depth="1" height="1" width="1"></a-box>
-        </a-nft> -->
-		<a-entity camera></a-entity>
+            <a-entity position="400 1000 0" scale="50 50 50"
+                animation__position="attribute: position; to: 0 5 -8; dur: 2000"
+                animation__rotation="property: rotation; from: 0 0 0; to: 0 0 0; dur: 2500" spectral-cursor-listener novol-spectral-click>
+
+              <a-box class="plane-spectral" mixin="board" src="#novol-spectral-11" rotation="-20 0 0" animation="delay: 1000">
+                <a-box class="plane-spectral" mixin="board" src="#novol-spectral-12" rotation="-175 0 0" animation="delay: 250">
+                  <a-box class="plane-spectral" mixin="board" src="#novol-spectral-13" rotation="-180 0 0" animation="delay: 500">
+                    <a-box class="plane-spectral" mixin="board" src="#novol-spectral-14" rotation="-180 0 0" animation="delay: 750">
+                      <a-box class="plane-spectral" mixin="board" src="#novol-spectral-15" rotation="-180 0 0" animation="delay: 1000">
+                      </a-box>
+                    </a-box>
+                  </a-box>
+                </a-box>
+              </a-box>
+            </a-entity>
+        </a-nft>
+
+        <!-- Novol Ultra -->
+        <a-nft
+            type='nft' url='novol-example/different-marks/data-images/novol-ultra-b/novol-ultra-b'
+            smooth='true' smoothCount='23' smoothTolerance='.3' smoothThreshold='30'>
+            
+            <a-entity position="400 1000 0" scale="50 50 50"
+                animation__position="attribute: position; to: 0 5 -8; dur: 2000"
+                animation__rotation="property: rotation; from: 0 0 0; to: 0 0 0; dur: 2500" ultra-cursor-listener novol-ultra-click>
+
+              <a-box class="plane-ultra" mixin="board" src="#novol-ultra-11" rotation="-20 0 0" animation="delay: 1000">
+                <a-box class="plane-ultra" mixin="board" src="#novol-ultra-12" rotation="-175 0 0" animation="delay: 250">
+                  <a-box class="plane-ultra" mixin="board" src="#novol-ultra-13" rotation="-180 0 0" animation="delay: 500">
+                    <a-box class="plane-ultra" mixin="board" src="#novol-ultra-14" rotation="-180 0 0" animation="delay: 750">
+                      <a-box class="plane-ultra" mixin="board" src="#novol-ultra-15" rotation="-180 0 0" animation="delay: 1000">
+                      </a-box>
+                    </a-box>
+                  </a-box>
+                </a-box>
+              </a-box>
+            </a-entity>
+        </a-nft>
+
+        <a-entity camera>
+          <a-cursor geometry="primitive: ring" material="color: #FFC0CB;    shader: flat"></a-cursor>
+        </a-entity>
     </a-scene>
 </body>
+
+
+<script src="js/coursor-listeners.js"></script>
+<script src="js/click-listeners.js"></script>
