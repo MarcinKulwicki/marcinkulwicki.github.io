@@ -1,5 +1,5 @@
-<script src='https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js'></script>
-<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
+<script src='js/aframe-master.min.js'></script>
+<script src="js/aframe-extras.js"></script>
 	
 <style>
   .arjs-loader {
@@ -23,7 +23,10 @@
 </style>
 
 <!-- rawgithack development URL -->
-<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+<script src='js/aframe-ar-nft.js'></script>
+
+<script src="js/coursor-listeners.js"></script>
+<script src="js/click-listeners.js"></script>
 
 <body style='margin : 0px; overflow: hidden;'>
    <!-- minimal loader shown until image descriptors are loaded -->
@@ -35,48 +38,46 @@
         renderer="logarithmicDepthBuffer: true;"
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
-        <a-assets>
-          <a-mixin id="board" geometry="depth: .05; height: 1.5; width: 6" material="shader: flat" pivot="0 0.5 0" position="0 -1 0"></a-mixin>
-          <a-mixin id="unhinge" animation="property: rotation; to: 0 0 0; dur: 1000"></a-mixin>
-          <img id="shadow" src="https://raw.githubusercontent.com/aframevr/aframe/master/examples/assets/img/radial-shadow-2.png">
-          
-          <!-- Novol 8500 -->
-          <img id="novol-11" src="images/unfold-lib/novol-11.jpg">
-          <img id="novol-12" src="images/unfold-lib/novol-12.jpg">
-          <img id="novol-13" src="images/unfold-lib/novol-13.jpg">
-          <img id="novol-14" src="images/unfold-lib/novol-14.jpg">
-          <img id="novol-15" src="images/unfold-lib/novol-15.jpg">
+        <a-mixin id="board" geometry="depth: .05; height: 1.5; width: 6" material="shader: flat" pivot="0 0.5 0" position="0 -1 0"></a-mixin>
+        <a-mixin id="unhinge" animation="property: rotation; to: 0 0 0; dur: 1000"></a-mixin>
+        <img crossorigin="anonymous" id="shadow" src="radial-shadow-2.png">
+        
+        <!-- Novol 8500 -->
+        <img crossorigin="anonymous" id="novol-11" src="images/unfold-lib/novol-11.jpg">
+        <img crossorigin="anonymous" id="novol-12" src="images/unfold-lib/novol-12.jpg">
+        <img crossorigin="anonymous" id="novol-13" src="images/unfold-lib/novol-13.jpg">
+        <img crossorigin="anonymous" id="novol-14" src="images/unfold-lib/novol-14.jpg">
+        <img crossorigin="anonymous" id="novol-15" src="images/unfold-lib/novol-15.jpg">
 
-          <!-- Novol Cobra -->
-          <img id="novol-cobra-11" src="images/unfold-lib/novol-cobra-11.jpg">
-          <img id="novol-cobra-12" src="images/unfold-lib/novol-cobra-12.jpg">
-          <img id="novol-cobra-13" src="images/unfold-lib/novol-cobra-13.jpg">
-          <img id="novol-cobra-14" src="images/unfold-lib/novol-cobra-14.jpg">
-          <img id="novol-cobra-15" src="images/unfold-lib/novol-cobra-15.jpg">
+        <!-- Novol Cobra -->
+        <img crossorigin="anonymous" id="novol-cobra-11" src="images/unfold-lib/novol-cobra-11.jpg">
+        <img crossorigin="anonymous" id="novol-cobra-12" src="images/unfold-lib/novol-cobra-12.jpg">
+        <img crossorigin="anonymous" id="novol-cobra-13" src="images/unfold-lib/novol-cobra-13.jpg">
+        <img crossorigin="anonymous" id="novol-cobra-14" src="images/unfold-lib/novol-cobra-14.jpg">
+        <img crossorigin="anonymous" id="novol-cobra-15" src="images/unfold-lib/novol-cobra-15.jpg">
 
-          <!-- Novol Spectral -->
-          <img id="novol-spectral-11" src="images/unfold-lib/novol-spectral-11.jpg">
-          <img id="novol-spectral-12" src="images/unfold-lib/novol-spectral-12.jpg">
-          <img id="novol-spectral-13" src="images/unfold-lib/novol-spectral-13.jpg">
-          <img id="novol-spectral-14" src="images/unfold-lib/novol-spectral-14.jpg">
-          <img id="novol-spectral-15" src="images/unfold-lib/novol-spectral-15.jpg">
+        <!-- Novol Spectral -->
+        <img crossorigin="anonymous" id="novol-spectral-11" src="images/unfold-lib/novol-spectral-11.jpg">
+        <img crossorigin="anonymous" id="novol-spectral-12" src="images/unfold-lib/novol-spectral-12.jpg">
+        <img crossorigin="anonymous" id="novol-spectral-13" src="images/unfold-lib/novol-spectral-13.jpg">
+        <img crossorigin="anonymous" id="novol-spectral-14" src="images/unfold-lib/novol-spectral-14.jpg">
+        <img crossorigin="anonymous" id="novol-spectral-15" src="images/unfold-lib/novol-spectral-15.jpg">
 
-          <!-- Novol Ultra -->
-          <img id="novol-ultra-11" src="images/unfold-lib/novol-ultra-11.jpg">
-          <img id="novol-ultra-12" src="images/unfold-lib/novol-ultra-12.jpg">
-          <img id="novol-ultra-13" src="images/unfold-lib/novol-ultra-13.jpg">
-          <img id="novol-ultra-14" src="images/unfold-lib/novol-ultra-14.jpg">
-          <img id="novol-ultra-15" src="images/unfold-lib/novol-ultra-15.jpg">
-        </a-assets>
+        <!-- Novol Ultra -->
+        <img crossorigin="anonymous" id="novol-ultra-11" src="images/unfold-lib/novol-ultra-11.jpg">
+        <img crossorigin="anonymous" id="novol-ultra-12" src="images/unfold-lib/novol-ultra-12.jpg">
+        <img crossorigin="anonymous" id="novol-ultra-13" src="images/unfold-lib/novol-ultra-13.jpg">
+        <img crossorigin="anonymous" id="novol-ultra-14" src="images/unfold-lib/novol-ultra-14.jpg">
+        <img crossorigin="anonymous" id="novol-ultra-15" src="images/unfold-lib/novol-ultra-15.jpg">
 
         <!-- Novol 8500 -->
         <a-nft
             type='nft' url='novol-example/different-marks/data-images/novol-b/novol-b'
             smooth='true' smoothCount='23' smoothTolerance='.3' smoothThreshold='30'>
             
-            <a-entity position="400 1000 0" scale="50 50 50"
+            <a-entity scale="50 50 50" class="container"
                 animation__position="attribute: position; to: 0 5 -8; dur: 2000"
-                animation__rotation="property: rotation; from: 0 0 0; to: 0 0 0; dur: 2500" novol-cursor-listener novol-click>
+                animation__rotation="property: rotation; from: -90 0 0; to: -90 0 0; dur: 2500" novol-cursor-listener novol-click>
 
               <a-box class="plane" mixin="board" src="#novol-11" rotation="-20 0 0" animation="delay: 1000">
                 <a-box class="plane" mixin="board" src="#novol-12" rotation="-175 0 0" animation="delay: 250">
@@ -95,10 +96,9 @@
         <a-nft
             type='nft' url='novol-example/different-marks/data-images/novol-cobra-b/novol-cobra-b'
             smooth='true' smoothCount='23' smoothTolerance='.3' smoothThreshold='30'>
-            
-            <a-entity position="400 1000 0" scale="50 50 50"
+            <a-entity scale="50 50 50" class="container"
                 animation__position="attribute: position; to: 0 5 -8; dur: 2000"
-                animation__rotation="property: rotation; from: 0 0 0; to: 0 0 0; dur: 2500" cobra-cursor-listener novol-cobra-click>
+                animation__rotation="property: rotation; from: -90 0 0; to: -90 0 0; dur: 2500" cobra-cursor-listener novol-cobra-click>
 
               <a-box class="plane-cobra" mixin="board" src="#novol-cobra-11" rotation="-20 0 0" animation="delay: 1000">
                 <a-box class="plane-cobra" mixin="board" src="#novol-cobra-12" rotation="-175 0 0" animation="delay: 250">
@@ -118,9 +118,9 @@
             type='nft' url='novol-example/different-marks/data-images/novol-spectral-b/novol-spectral-b'
             smooth='true' smoothCount='23' smoothTolerance='.3' smoothThreshold='30'>
             
-            <a-entity position="400 1000 0" scale="50 50 50"
+            <a-entity scale="50 50 50" class="container"
                 animation__position="attribute: position; to: 0 5 -8; dur: 2000"
-                animation__rotation="property: rotation; from: 0 0 0; to: 0 0 0; dur: 2500" spectral-cursor-listener novol-spectral-click>
+                animation__rotation="property: rotation; from: -90 0 0; to: -90 0 0; dur: 2500" spectral-cursor-listener novol-spectral-click>
 
               <a-box class="plane-spectral" mixin="board" src="#novol-spectral-11" rotation="-20 0 0" animation="delay: 1000">
                 <a-box class="plane-spectral" mixin="board" src="#novol-spectral-12" rotation="-175 0 0" animation="delay: 250">
@@ -140,9 +140,9 @@
             type='nft' url='novol-example/different-marks/data-images/novol-ultra-b/novol-ultra-b'
             smooth='true' smoothCount='23' smoothTolerance='.3' smoothThreshold='30'>
             
-            <a-entity position="400 1000 0" scale="50 50 50"
+            <a-entity scale="50 50 50" class="container"
                 animation__position="attribute: position; to: 0 5 -8; dur: 2000"
-                animation__rotation="property: rotation; from: 0 0 0; to: 0 0 0; dur: 2500" ultra-cursor-listener novol-ultra-click>
+                animation__rotation="property: rotation; from: -90 0 0; to: -90 0 0; dur: 2500" ultra-cursor-listener novol-ultra-click>
 
               <a-box class="plane-ultra" mixin="board" src="#novol-ultra-11" rotation="-20 0 0" animation="delay: 1000">
                 <a-box class="plane-ultra" mixin="board" src="#novol-ultra-12" rotation="-175 0 0" animation="delay: 250">
@@ -163,6 +163,41 @@
     </a-scene>
 </body>
 
+<script>
+  var sceneEl = document.querySelector('a-scene');
+  var entityList = sceneEl.querySelectorAll('.container');
+  var firstVertical = true;
+  if(screen.orientation.angle != 0){
+    firstVertical = false;
+  }
 
-<script src="js/coursor-listeners.js"></script>
-<script src="js/click-listeners.js"></script>
+  start();
+
+  function start() {
+    // For first setup 
+    entityList.forEach(function(item) {
+      item.setAttribute('position', { x: screen.width, y: 0, z: -(1.2 * screen.height) });
+      
+      console.log(item.getAttribute("position"));
+    });
+  }
+
+  screen.orientation.addEventListener("change", function(e) {
+
+    //First Vertical
+    if(screen.orientation.angle != 0 && firstVertical){
+      
+      entityList.forEach(function(item) {
+        item.setAttribute('position', { x: 0, y: 0, z: -(screen.height / 2) });
+      });
+    }
+    //First Horizontal
+    if(screen.orientation.angle == 0 && !firstVertical){
+      
+      entityList.forEach(function(item) {
+        item.setAttribute('position', { x: 1.33 * screen.width, y: 0, z: -(screen.height / 2) });
+      });
+    }
+  }, false);
+  
+</script>
